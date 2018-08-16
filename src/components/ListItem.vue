@@ -1,7 +1,7 @@
 <template>
     <div class="list-item">
         <div class="list-item__title">
-            {{data.title}}
+            {{task.title}}
         </div>
         <div class="list-item__actions">
             <span v-on:click="onEdit">edit</span>
@@ -14,13 +14,14 @@
   export default {
     name: 'ListItem',
     props: {
-      'data': Object,
+      'task': Object,
     },
     methods: {
       onEdit() {
+        this.$emit('onEdit', this.task);
       },
       onDelete() {
-        this.$store.commit('delete', this.data);
+        this.$store.commit('delete', this.task);
       }
     }
   }

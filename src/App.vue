@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <List :values="values"/>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -10,11 +10,6 @@
     name: 'app',
     components: {
       List,
-    },
-    computed: {
-      values() {
-        return this.$store.state.tasks
-      }
     },
   }
 </script>
